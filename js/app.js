@@ -1,10 +1,10 @@
 const loadProducts = () => {
-  const url = `https://fakestoreapi.com/products`;
-  fetch(url)
+  /* const url = `https://fakestoreapi.com/products`;
+  fetch(url) */
+  fetch('../js/data.json')
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
-loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
@@ -33,14 +33,15 @@ const addToCart = (id, price) => {
 
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
+  updateTotal();
 };
 
 const getInputValue = (id) => {
-  const element = document.getElementById(id).innerText;
-  const converted = parseInt(element);
+  const element = document.getElementById(id);
+  const elementText= element.innerText
+  const converted = parseFloat(elementText);
   return converted;
 };
-
 // main price update function
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
@@ -78,3 +79,4 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal;
 };
+loadProducts();
