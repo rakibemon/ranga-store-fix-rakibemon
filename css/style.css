@@ -39,7 +39,7 @@ body {
 .single-product {
   padding: 10px;
   transition: 0.6s;
-  background: #f2fafb;
+  background: #c0d9f5;
   margin: 13px;
   max-width: 420px;
   height: 430px;
@@ -52,6 +52,9 @@ body {
 .product-image {
   width: 150px;
   height: 150px;
+}
+figure{
+  background: #c0d9f5;
 }
 .cart {
   width: 350px;

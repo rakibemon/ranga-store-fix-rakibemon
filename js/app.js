@@ -1,3 +1,4 @@
+// Load products
 const loadProducts = () => {
   /* const url = `https://fakestoreapi.com/products`;
   fetch(url) */
@@ -13,16 +14,16 @@ const showProducts = (products) => {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML =`<div class="single-product">
-      <div>
-    <img class="product-image" src=${image}></img>
-      </div>
-      <h3>${product.title.slice(0,25)}</h3>
+    div.innerHTML = `<div class="single-product">
+      <figure>
+    <img class="product-image" src=${image} alt="Product Image"></img>
+      </figure>
+      <h3>${product.title.slice(0, 25)}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
       <p> <i class="fas fa-star"></i> <b>${product.rating.rate}</b>/5 (${product.rating.count}) </P>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button id="details-btn" class="btn btn-primary text-white">Details</button></div>
       `
 
       ;
@@ -30,6 +31,7 @@ const showProducts = (products) => {
   }
 };
 let count = 0;
+// add to cart button event listener
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
@@ -38,7 +40,7 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
   updateTotal();
 };
-
+// get value from myCart table
 const getInputValue = (id) => {
   const element = document.getElementById(id);
   const elementText = element.innerText
